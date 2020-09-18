@@ -12,6 +12,7 @@
 
     <modules>
         <module>spring-boot-archetype</module>
+        <module>spring-boot-modules-archetype</module>
     </modules>
 
     <properties>

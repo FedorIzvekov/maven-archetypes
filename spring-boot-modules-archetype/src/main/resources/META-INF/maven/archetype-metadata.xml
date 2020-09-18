@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+    name="spring-boot-modules">
+
+    <requiredProperties>
+        <requiredProperty key="outputDirectory"><defaultValue>${outputDirectory}</defaultValue></requiredProperty>
+        <requiredProperty key="firstModuleName"><defaultValue>first-module</defaultValue></requiredProperty>
+        <requiredProperty key="secondModuleName"><defaultValue>second-module</defaultValue></requiredProperty>
+        <requiredProperty key="firstMainClassName"><defaultValue>FirstApplication</defaultValue></requiredProperty>
+        <requiredProperty key="secondMainClassName"><defaultValue>SecondApplication</defaultValue></requiredProperty>
+        <requiredProperty key="firstPackage"><defaultValue>${package}.${firstModuleName.replace("-", ".")}</defaultValue></requiredProperty>
+        <requiredProperty key="firstDirectory"><defaultValue>${firstPackage.replace(".", "/")}</defaultValue></requiredProperty>
+        <requiredProperty key="secondPackage"><defaultValue>${package}.${secondModuleName.replace("-", ".")}</defaultValue></requiredProperty>
+        <requiredProperty key="secondDirectory"><defaultValue>${secondPackage.replace(".", "/")}</defaultValue></requiredProperty>
+    </requiredProperties>
+
+    <modules>
+
+        <module id="${firstModuleName}" dir="__firstModuleName__" name="${firstModuleName}">
+
+            <fileSets>
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*.yaml</include>
+                    </includes>
+                </fileSet>
+
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                </fileSet>
+
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>README.md</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+
+        </module>
+
+        <module id="${secondModuleName}" dir="__secondModuleName__" name="${secondModuleName}">
+
+            <fileSets>
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*.yaml</include>
+                    </includes>
+                </fileSet>
+
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                </fileSet>
+
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>README.md</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+
+        </module>
+
+    </modules>
+
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+</archetype-descriptor>

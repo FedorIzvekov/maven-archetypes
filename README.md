@@ -36,6 +36,25 @@ mvn archetype:generate \
     -DkeepParent=true \
     -DinteractiveMode=false -X
 ```
+4.2 spring-boot-modules archetype:
+```
+mvn archetype:generate \
+    -DarchetypeCatalog=local \
+    -DarchetypeGroupId=com.fedorizvekov \
+    -DarchetypeArtifactId=spring-boot-modules \
+    -DarchetypeVersion=LATEST \
+    -Darchetype.filteredExtensions=java,xml,md \
+    -DoutputDirectory=<directory_path> \
+    -DgroupId=<group_id> \
+    -DartifactId=<artifact_id> \
+    -DfirstModuleName=<first_module_name> \
+    -DsecondModuleName=<second_module_name> \
+    -DfirstMainClassName=<first_main_class_name> \
+    -DsecondMainClassName=<second_main_class_name> \
+    -Dversion=<version> \
+    -DkeepParent=true \
+    -DinteractiveMode=false -X
+```
 
 Note: 
 Replace: 
