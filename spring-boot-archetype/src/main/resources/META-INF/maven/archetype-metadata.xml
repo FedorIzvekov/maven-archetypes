@@ -5,6 +5,7 @@
     name="spring-boot">
 
     <requiredProperties>
+        <requiredProperty key="package"><defaultValue>${groupId}.${artifactId.replace("-", ".")}</defaultValue></requiredProperty>
         <requiredProperty key="mainClassName"><defaultValue>Application</defaultValue></requiredProperty>
     </requiredProperties>
 
