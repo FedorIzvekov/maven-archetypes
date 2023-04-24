@@ -14,7 +14,7 @@ To work with the ${artifactId} project, you need to install the following compon
 
 1. Navigate to the directory:
 ```
-cd <directory_path>/<artifact_id>
+cd ${outputDirectory}/${artifactId}
 ```
 2. Create an empty Git repository for git-commit-id-maven-plugin:
 ```
@@ -26,7 +26,7 @@ mvn clean install
 ```
 4. Run the project:
 ```
-java -jar ./target/<artifact_id>-<version>.jar
+java -jar ./target/${artifactId}-${version}.jar
 ```
 
 # Check
