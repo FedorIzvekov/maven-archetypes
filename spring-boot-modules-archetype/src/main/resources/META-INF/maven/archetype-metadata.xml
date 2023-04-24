@@ -5,6 +5,7 @@
     name="spring-boot-modules">
 
     <requiredProperties>
+        <requiredProperty key="outputDirectory"><defaultValue>${outputDirectory}</defaultValue></requiredProperty>
         <requiredProperty key="firstModuleName"><defaultValue>first-module</defaultValue></requiredProperty>
         <requiredProperty key="secondModuleName"><defaultValue>second-module</defaultValue></requiredProperty>
         <requiredProperty key="firstMainClassName"><defaultValue>FirstApplication</defaultValue></requiredProperty>
