@@ -1,57 +1,53 @@
-# Project ${firstModuleName}
+# Module ${firstModuleName}
 
-* [Preparation of Environment](#preparation-of-environment)
-* [Install and Run](#install-and-run)
-* [Check](#check)
-
-# Preparation of Environment
-To work with the ${firstModuleName} project, you need to install the following components:
-* Java Development Kit version 17.
-* Maven for building the project.
+# Table of Contents
+* [Main Project](../README.md#project-${rootArtifactId})
+* [Building Only the Module](#building-only-the-module)
+* [Running the Module](#running-the-module)
+* [Checking Actuator](#checking-actuator)
 
 
-# Install and Run
+# Building Only the Module
+To build only the '${firstModuleName}' module, follow these steps:
 
-1. Navigate to the directory:
+1. Navigate to the project directory:
 ```
-cd ${outputDirectory}/${rootArtifactId}
+cd <projects_directory>/${rootArtifactId}
 ```
-2. Create an empty Git repository for git-commit-id-maven-plugin:
+2. Build the module using Maven:
 ```
-git init
+mvn clean install -pl ${firstModuleName}
 ```
-3. Build the project:
-```
-mvn clean install
-```
-4. Run the project:
+
+
+# Running the Module
+Run the module using the following command:
 ```
 java -jar ./${firstModuleName}/target/${firstModuleName}-${version}.jar
 ```
 
-# Check
+
+# Checking Actuator
+To check the actuator endpoints of the '${firstModuleName}' module, follow these steps:
+
 1. Check probes:
 ``` 
 curl -v http://localhost:8181/monitoring/health/readiness
 curl -v http://localhost:8181/monitoring/health/liveness 
 curl -v http://localhost:8181/monitoring/info 
 ```
-
 2. Get Prometheus metrics:
 ``` 
 curl -v http://localhost:8181/monitoring/prometheus 
 ```
-
 3. Check logging level:
 ``` 
 curl -v http://localhost:8181/monitoring/loggers 
 ```
-
 4. Switch logging level without restarting the app:
 ``` 
 curl -v -i -X POST -H 'Content-Type: application/json' -d '{"configuredLevel": "DEBUG"}' http://localhost:8181/monitoring/loggers/org.springframework 
 ```
-
 5. Shutdown the app:
 ``` 
 curl -v -X POST http://localhost:8181/monitoring/shutdown 

@@ -49,7 +49,6 @@
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
                     <includes>
-                        <include>lombok.config</include>
                         <include>README.md</include>
                     </includes>
                 </fileSet>
@@ -81,14 +80,13 @@
                     </includes>
                 </fileSet>
 
-                <fileSet iltered="true" encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/test/resources</directory>
                 </fileSet>
 
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
                     <includes>
-                        <include>lombok.config</include>
                         <include>README.md</include>
                     </includes>
                 </fileSet>
@@ -97,5 +95,14 @@
         </module>
 
     </modules>
+
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 
 </archetype-descriptor>
