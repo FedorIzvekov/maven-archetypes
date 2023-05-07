@@ -1,38 +1,35 @@
 package ${package};
 
 import static org.mockito.Mockito.mockStatic;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.MockedStatic;
 import org.springframework.boot.SpringApplication;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
-@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = NONE)
+@TestPropertySource(properties = {"spring.main.lazy-initialization=true"})
 class ${mainClassName}Test {
 
-    private MockedStatic<${mainClassName}> mockedStatic;
 
-    @BeforeEach
-    void setUp() {
-        mockedStatic = mockStatic(${mainClassName}.class);
-    }
-
-    @AfterEach
-    void tearDown() {
-        mockedStatic.close();
+    @Test
+    @DisplayName("Should context loads")
+    void contextLoads() {
     }
 
 
     @Test
-    @DisplayName("When public static void main run context")
-    void When_publicStaticVoidMain_runContext() {
+    @DisplayName("Should run SpringApplication")
+    void should_run_springApplication() {
+        MockedStatic<SpringApplication> mockedStatic = mockStatic(SpringApplication.class);
+
         ${mainClassName}.main(new String[]{});
 
         mockedStatic.verify(() -> SpringApplication.run(${mainClassName}.class, new String[]{}));
+        mockedStatic.close();
     }
 
 }
